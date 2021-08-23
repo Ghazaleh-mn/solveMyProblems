@@ -140,7 +140,9 @@ function autocomplete(inp, arr) {
   myHeaders.append("x-rapidapi-key", "8ce2c0aa26msh1bc7e28a0966945p1a0c1ejsnfe3b547760cf");
 
 
-  document.getElementById("searchBtn").onclick = function() {showWeatherData("https://weatherapi-com.p.rapidapi.com/current.json?q=" + select.value , {
+  document.getElementById("searchBtn").onclick = function(e) {
+    e.preventDefault();
+    showWeatherData("https://weatherapi-com.p.rapidapi.com/current.json?q=" + select.value , {
     method: 'GET',
     headers: myHeaders,
     redirect: 'follow'
