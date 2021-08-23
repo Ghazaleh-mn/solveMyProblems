@@ -152,15 +152,11 @@ function autocomplete(inp, arr) {
     console.log("gggggggggggggggggggggggggg");
     console.log( select.value + "gggggggggggggggggggggggggg");
     let htmlForWeather = '';
-    for(let i=0 ; i <= listForAll.length-1;i++){
-    if(select.value === listForAll[i]){
     htmlForWeather += `<div style="text-align: center;" id="demo">`;
     htmlForWeather += `<p id="showWeatherInfo">hiii</p>`;
     htmlForWeather += `<p>${data.location.country}</p>`;
     htmlForWeather += `<p>${data.current.condition.text}</p>`;
     htmlForWeather += `<p>${data.current.temp_c}<sup>°C</sup></p>`;
-    showWeather.innerHTML = htmlForWeather;
-    }
-  }
+    showWeather.innerHTML = htmlForWeather;  
 }
 //showWeatherData();
