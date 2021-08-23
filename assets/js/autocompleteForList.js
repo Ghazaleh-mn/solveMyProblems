@@ -156,7 +156,7 @@ function autocomplete(inp, arr) {
     let htmlForWeather = '';
     htmlForWeather += `<div style="text-align: center;" id="demo">`;
     htmlForWeather += `<p id="showWeatherInfo">hiii</p>`;
-    htmlForWeather += `<p>${data.location.country}</p>`;
+    htmlForWeather += `<p>${data.location.country}/${data.location.name}</p>`;
     htmlForWeather += `<p>${data.current.condition.text}</p>`;
     htmlForWeather += `<p>${data.current.temp_c}<sup>°C</sup></p>`;
     showWeather.innerHTML = htmlForWeather;  
