@@ -139,13 +139,12 @@ function autocomplete(inp, arr) {
   var myHeaders = new Headers();
   myHeaders.append("x-rapidapi-key", "8ce2c0aa26msh1bc7e28a0966945p1a0c1ejsnfe3b547760cf");
 
-  showWeatherData("https://weatherapi-com.p.rapidapi.com/current.json?q=" + select.value , {
+
+  document.getElementById("searchBtn").onclick = function() {showWeatherData("https://weatherapi-com.p.rapidapi.com/current.json?q=" + select.value , {
     method: 'GET',
     headers: myHeaders,
     redirect: 'follow'
-  });
-
-  document.getElementById("searchBtn").onclick = function() {showWeatherData()};
+  })};
 
   async function showWeatherData(url,requestOptionsForWeatherAPI){
     const response = await fetch(url,requestOptionsForWeatherAPI);
@@ -160,8 +159,8 @@ function autocomplete(inp, arr) {
     htmlForWeather += `<p>${data.location.country}</p>`;
     htmlForWeather += `<p>${data.current.condition.text}</p>`;
     htmlForWeather += `<p>${data.current.temp_c}<sup>°C</sup></p>`;
+    showWeather.innerHTML = htmlForWeather;
     }
   }
-  showWeather.innerHTML = htmlForWeather;
 }
-showWeatherData();
+//showWeatherData();
