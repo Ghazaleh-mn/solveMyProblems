@@ -1,6 +1,4 @@
 const select = document.getElementById("myInput");
-//let testGetValue;
-//testGetValue = document.getElementById("myInput");
 const searchBarBtn = document.getElementById("searchBtn");
 const showWeather = document.getElementById("showWeatherInfo");
 
@@ -134,11 +132,42 @@ function autocomplete(inp, arr) {
     });
   }
 
-  //showData
+  //showDataIran 
 
   var myHeaders = new Headers();
   myHeaders.append("x-rapidapi-key", "8ce2c0aa26msh1bc7e28a0966945p1a0c1ejsnfe3b547760cf");
 
+  showWeatherDataForIran("https://weatherapi-com.p.rapidapi.com/current.json?q=Iran", {
+    method: 'GET',
+    headers: myHeaders,
+    redirect: 'follow'
+})
+
+  async function showWeatherDataForIran(url,requestOptionsForWeatherAPI){
+    const response2 = await fetch(url,requestOptionsForWeatherAPI);
+    document.getElementById("showWeatherInfo").style.display = "block";
+    var data = await response2.json();
+    document.getElementById("loaderForShow").style.display = "none";
+    
+    console.log("uuuuuuuuuuuuuuuuuuu");
+    let htmlForWeatherIran = '';
+    htmlForWeatherIran += `<div style="text-align: center;" id="demo">`;
+    htmlForWeatherIran += `<p id="showWeatherInfo"></p>`;
+    htmlForWeatherIran += `<img class="size-img" src="https:${data.current.condition.icon}">`;
+    htmlForWeatherIran += `<p class="text-label">${data.location.country}</p>`;
+    htmlForWeatherIran += `<p class="text-label">${data.current.condition.text}</p>`;
+    htmlForWeatherIran += `<p class="text-label text-weather-size">${data.current.temp_c}<sup>°C</sup></p>`;
+    console.log(data.location.lon + "jjjjjjjjjj");
+    console.log(data.current.temp_f + "jjjjjjjjjj");
+    console.log(data + "hiiiiiii");
+    console.log(select.value,'***********************&&&&&&&&&&&&&&&&&&&&&&&&&&')
+
+    if(select.value === "Country/city"){
+        showWeather.innerHTML = htmlForWeatherIran;
+
+    }
+}
+  //showData
 
   document.getElementById("searchBtn").onclick = function(e) {
     e.preventDefault();
@@ -149,16 +178,21 @@ function autocomplete(inp, arr) {
   })};
 
   async function showWeatherData(url,requestOptionsForWeatherAPI){
+    
+    document.getElementById("loaderForShow").style.display = "block";
+    document.getElementById("showWeatherInfo").style.display = "none";
     const response = await fetch(url,requestOptionsForWeatherAPI);
+    document.getElementById("loaderForShow").style.display = "none";
+    document.getElementById("showWeatherInfo").style.display = "block";
     var data = await response.json();
     console.log("gggggggggggggggggggggggggg");
     console.log( select.value + "gggggggggggggggggggggggggg");
     let htmlForWeather = '';
     htmlForWeather += `<div style="text-align: center;" id="demo">`;
-    htmlForWeather += `<p id="showWeatherInfo">hiii</p>`;
+    htmlForWeather += `<p id="showWeatherInfo"></p>`;
+    htmlForWeather += `<img class="size-img" src="https:${data.current.condition.icon}">`;
     htmlForWeather += `<p>${data.location.country}/${data.location.name}</p>`;
     htmlForWeather += `<p>${data.current.condition.text}</p>`;
     htmlForWeather += `<p>${data.current.temp_c}<sup>°C</sup></p>`;
     showWeather.innerHTML = htmlForWeather;  
 }
-//showWeatherData();

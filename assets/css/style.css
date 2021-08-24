@@ -1,3 +1,6 @@
+* {
+  box-sizing: border-box;
+}
 body {
 	margin: 0;
 	background-color: #1b5e20;
@@ -11,15 +14,35 @@ body {
   margin-bottom: 100px;
   color: #4c8c4a;
 }
-.selector-button {
+.search-bar {
 	color: #4c8c4a;
 	border-radius: 1px;
   font-size: large;
-  width:500px;
+  width:300px;
 }
-.selector-button option:hover {
+.search-bar option:hover {
 	color: #1b5e20;
 	background-color: #a5d6a7;
+}
+.search-bar-input{
+  border: 1px solid transparent;
+  padding: 10px;
+  font-size: 16px;
+  color: #4c8c4a;
+  background-color: #c5e4c6;
+}
+input[type=text] {
+  color: #4c8c4a;
+  background-color: #c5e4c6;
+  width: 100%;
+}
+input[type=submit] {
+  cursor: pointer;
+}
+.input-button{
+  color: #4c8c4a;
+  background-color: white;
+  border: 4px solid #4c8c4a;
 }
 .parts-of-info-weather{
   display: flex; 
@@ -42,12 +65,39 @@ body {
   border: 4px solid #4c8c4a;
   padding: 10px;
   background-color: #a5d6a7;
-  height: 200px;
+  height: 250px;
 }
 .show-info-weather{
   display: flex; 
   flex-direction: column; 
   justify-content: center;
+}
+.autocomplete {
+  position: relative;
+  display: inline-block;
+}
+.autocomplete-items {
+  position: absolute;
+  border: 1px solid #d4d4d4;
+  border-bottom: none;
+  border-top: none;
+  z-index: 99;
+  top: 100%;
+  left: 0;
+  right: 0;
+}
+.autocomplete-items div {
+  padding: 10px;
+  cursor: pointer;
+  background-color: #fff; 
+  border-bottom: 1px solid #d4d4d4; 
+}
+.autocomplete-items div:hover {
+  background-color: #e9e9e9; 
+}
+.autocomplete-active {
+  background-color: #a5d6a7 !important; 
+  color: #ffffff; 
 }
 .loader {
   border: 16px solid #f3f3f3;
@@ -111,7 +161,7 @@ body {
   .showWeather {
     margin: auto;
     width: 80%;
-    border: 4px solid #a5d6a7;
+    border: 4px solid #4c8c4a;
     padding: 10px;
     background-color: #a5d6a7;
   }
