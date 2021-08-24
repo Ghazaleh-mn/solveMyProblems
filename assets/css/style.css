@@ -19,6 +19,7 @@ body {
 	border-radius: 1px;
   font-size: large;
   width:300px;
+  border-radius: 10px;
 }
 .search-bar option:hover {
 	color: #1b5e20;
@@ -35,12 +36,15 @@ input[type=text] {
   color: #4c8c4a;
   background-color: #c5e4c6;
   width: 100%;
+  border-radius: 10px;
 }
 input[type=submit] {
   cursor: pointer;
 }
 .input-button{
   color: #4c8c4a;
+  border-radius: 10px;
+  margin-left: 5px;
   background-color: white;
   border: 4px solid #4c8c4a;
 }
@@ -66,6 +70,7 @@ input[type=submit] {
   padding: 10px;
   background-color: #a5d6a7;
   height: 250px;
+  border-radius: 15px;
 }
 .show-info-weather{
   display: flex; 
@@ -164,6 +169,7 @@ input[type=submit] {
     border: 4px solid #4c8c4a;
     padding: 10px;
     background-color: #a5d6a7;
+    border-radius: 15px;
   }
   .loader {
     border: 16px solid #f3f3f3;
