@@ -162,7 +162,7 @@ function autocomplete(inp, arr) {
     console.log(data + "hiiiiiii");
     console.log(select.value,'***********************&&&&&&&&&&&&&&&&&&&&&&&&&&')
 
-    if(select.value === "Country/city"){
+    if(select.value === ""){
         showWeather.innerHTML = htmlForWeatherIran;
 
     }
