@@ -1,5 +1,4 @@
 const select = document.getElementById("myInput");
-const searchBarBtn = document.getElementById("searchBtn");
 const showWeather = document.getElementById("showWeatherInfo");
 
 const urlAPIForCities = "https://countriesnow.space/api/v0.1/countries/population/cities";
